@@ -11,6 +11,11 @@ steps:
     inputs:
       version: '7.0.302'
       includePreviewVersions: true
+  
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      feedsToUse: 'select'
 
   - script: dotnet publish
     displayName: 'Publish .NET Core project'
