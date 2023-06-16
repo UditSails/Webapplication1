@@ -9,17 +9,20 @@ steps:
   - task: UseDotNet@2
     displayName: 'Install .NET SDK 7.0.032'
     inputs:
-      version: '7.0.100'
+      version: '7.0.302'
       includePreviewVersions: true
+  
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      feedsToUse: 'select'
 
   - script: dotnet publish
     displayName: 'Publish .NET Core project'
 
+  
   - task: Docker@2
-    displayName: 'Build and push Docker image'
     inputs:
-      command: buildAndPush
-      containerRegistry: 'example'  # Name of the Docker service connection in Azure DevOps
-      repository: 'testgathrr'  # Name of your Azure Container Registry repository
-      tags: |
-        $(Build.SourceBranchName)-$(Build.BuildId)
+      containerRegistry: 'example'
+      repository: 'testgathrr'
+      command: 'push'

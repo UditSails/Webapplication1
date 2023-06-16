@@ -9,7 +9,7 @@
   <PropertyGroup>
     <ContainerImageName>WebApplication1</ContainerImageName>
     <PublishProfile>DefaultContainer</PublishProfile>
-    <ContainerImageTags>1.1.0;latest</ContainerImageTags>
+    <ContainerImageTags>testgathrr.azurecr.io/testgathrr:latest</ContainerImageTags>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>   
   </PropertyGroup>
 
